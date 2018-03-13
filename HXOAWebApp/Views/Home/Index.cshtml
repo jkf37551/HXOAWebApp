@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" http-equiv="content-type" />
+    <title>登录提示</title>
+    <link href="~/Content/css/default.css" rel="stylesheet" />
+    <link href="~/Javascript/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Javascript/themes/icon.css" rel="stylesheet" />
+    <script src="~/Javascript/jquery-1.4.4.min.js"></script>
+    <script src="~/Javascript/jquery.easyui.min.1.2.2.js"></script>
+    <script src="~/Javascript/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body>
+    <div style="vertical-align:middle; text-align:center">
+        @Html.Raw(ViewData["Info"])
+    </div>
+</body>
+</html>
