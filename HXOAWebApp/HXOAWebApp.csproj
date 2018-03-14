@@ -48,6 +48,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -120,6 +121,7 @@
     <Content Include="Content\Login\image\demo-1-bg.jpg" />
     <Content Include="Content\Login\image\login_ico.png" />
     <Content Include="Global.asax" />
+    <Content Include="Javascript\ChineseCalendar.js" />
     <Content Include="Javascript\easyloader.js" />
     <Content Include="Javascript\html5.js" />
     <Content Include="Javascript\jquery-1.4.4.min.js" />
@@ -139,7 +141,7 @@
     <Content Include="Javascript\Login\EasePack.min.js" />
     <Content Include="Javascript\Login\rAF.js" />
     <Content Include="Javascript\Login\TweenLite.min.js" />
-    <Content Include="Javascript\outlook2.js" />
+    <Content Include="Javascript\MenuTrees.js" />
     <Content Include="Javascript\themes\default\accordion.css" />
     <Content Include="Javascript\themes\default\calendar.css" />
     <Content Include="Javascript\themes\default\combo.css" />
@@ -336,8 +338,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Javascript\themes\default\images\Thumbs.db" />
     <Content Include="Javascript\themes\gray\images\Thumbs.db" />
-    <Content Include="Views\Home\MainDefault.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\MainDefault.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

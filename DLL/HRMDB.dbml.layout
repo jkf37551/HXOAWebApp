@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HRMDB">
+  <DataContextMoniker Name="/HRMDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fa25fbe5-32a3-40a4-b88f-5950a9f9efa9" isExpanded="false" absoluteBounds="0.75, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/HRMDBDataContext/Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="32268d98-6046-45a3-af03-629f3131903f" absoluteBounds="0.76499999999999968, 1.335, 1.9700000000000002, 15.911081949869789" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

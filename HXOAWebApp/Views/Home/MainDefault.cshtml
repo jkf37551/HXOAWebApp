@@ -14,38 +14,10 @@
     <link href="~/Javascript/themes/icon.css" rel="stylesheet" />
     <script src="~/Javascript/jquery-1.4.4.min.js"></script>
     <script src="~/Javascript/jquery.easyui.min.1.2.2.js"></script>
-    @*<script src="~/Javascript/locale/easyui-lang-zh_CN.js"></script>*@
-    <script src="~/Javascript/outlook2.js"></script>
+    <script src="~/Javascript/locale/easyui-lang-zh_CN.js"></script>
+    <script src="~/Javascript/ChineseCalendar.js"></script>
+    <script src="~/Javascript/MenuTrees.js"></script>
     <script type="text/javascript">
-	 var _menus = {"menus":[
-						{"menuid":"1","icon":"icon-sys","menuname":"控件使用",
-							"menus":[
-									{"menuid":"12","menuname":"疯狂秀才","icon":"icon-add","url":"http://www.mycodes.net"},
-									{"menuid":"13","menuname":"用户管理","icon":"icon-users","url":"demo2.html"},
-									{"menuid":"14","menuname":"角色管理","icon":"icon-role","url":"demo2.html"},
-									{"menuid":"15","menuname":"权限设置","icon":"icon-set","url":"demo.html"},
-									{"menuid":"16","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}
-								]
-						},{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
-							"menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"demo.html"},
-									{"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}
-								]
-						},{"menuid":"56","icon":"icon-sys","menuname":"部门管理",
-							"menus":[{"menuid":"31","menuname":"添加部门","icon":"icon-nav","url":"demo1.html"},
-									{"menuid":"32","menuname":"部门列表","icon":"icon-nav","url":"demo2.html"}
-								]
-						},{"menuid":"28","icon":"icon-sys","menuname":"财务管理",
-							"menus":[{"menuid":"41","menuname":"收支分类","icon":"icon-nav","url":"demo.html"},
-									{"menuid":"42","menuname":"报表统计","icon":"icon-nav","url":"demo1.html"},
-									{"menuid":"43","menuname":"添加支出","icon":"icon-nav","url":"demo2.html"}
-								]
-						},{"menuid":"39","icon":"icon-sys","menuname":"商城管理",
-							"menus":[{"menuid":"51","menuname":"商品分类","icon":"icon-nav","url":"demo.html"},
-									{"menuid":"52","menuname":"商品列表","icon":"icon-nav","url":"demo1.html"},
-									{"menuid":"53","menuname":"商品订单","icon":"icon-nav","url":"demo2.html"}
-								]
-						}
-				]};
         //设置登录窗口
         function openPwd() {
             $('#w').window({
@@ -134,16 +106,16 @@
         <span style="padding-left:10px; font-size: 16px; "><img src="~/Content/images/blocks.gif" width="20" height="20" align="absmiddle" /> 欢迎使用鸿翔业务协作平台</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
-        <div class="footer">COPYRIGHT ©2014云南鸿翔一心堂药业（集团）股份有限公司</div>
+        <div class="footer">COPYRIGHT ©2018云南鸿翔一心堂药业（集团）股份有限公司</div>
     </div>
     <div region="west" hide="true" split="true" title="导航菜单" style="width:180px;" id="west">
         <div id="nav" class="easyui-accordion" fit="true" border="false">
             <!--  导航内容 -->
-
+                    @Html.Raw(ViewBag.MenuTrees)
         </div>
 
     </div>
-    <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
+    <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden" title="">
         <div id="tabs" class="easyui-tabs" fit="true" border="false">
             <div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; ">
                 <h1 style="font-size:24px;">* 作者：疯狂秀才 QQ：1055818239</h1>
