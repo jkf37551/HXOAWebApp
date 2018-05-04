@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyAppDB" Class="HXAppDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.2.18.71;Initial Catalog=MyAppDB;Persist Security Info=True;User ID=sa" SettingsObjectName="DB.Properties.Settings" SettingsPropertyName="MyAppDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.M_MENU_INFO" Member="M_MENU_INFO">
+    <Type Name="M_MENU_INFO">
+      <Column Name="MENU_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MENU_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_URL" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CODE_FOR_MENU_LEVEL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_UPMENU" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_FOR_STATUS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MENU_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MENU_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MENU_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MENU_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MENU_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MENU_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_APP_INFO" Member="T_APP_INFO">
+    <Type Name="T_APP_INFO">
+      <Column Name="APP_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="APP_IP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="APP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="APP_IN_URL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="APP_OUT_URL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_ROLE_MENUS" Member="M_ROLE_MENUS">
+    <Type Name="M_ROLE_MENUS">
+      <Column Name="RMID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENU_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RM_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RM_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RM_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RM_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RM_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RM_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RM_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_ROLES" Member="M_ROLES">
+    <Type Name="M_ROLES">
+      <Column Name="ROLE_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ROLE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_FOR_STATUS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ROLE_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ROLE_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ROLE_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_SYS_CODE" Member="M_SYS_CODE">
+    <Type Name="M_SYS_CODE">
+      <Column Name="CODE_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CODE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CODE_FOR_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_FOR_STATUS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CODE_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CODE_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CODE_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CODE_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CODE_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CODE_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_SYS_INFO" Member="M_SYS_INFO">
+    <Type Name="M_SYS_INFO">
+      <Column Name="SYS_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SYS_VSERION" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SYS_UPDATE_CONTENT" Type="System.String" DbType="Text" CanBeNull="true" />
+      <Column Name="SYS_UPDATE_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CODE_FOR_SYSTYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SYS_CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SYS_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SYS_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SYS_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SYS_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SYS_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SYS_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_SYS_TYPE" Member="M_SYS_TYPE">
+    <Type Name="M_SYS_TYPE">
+      <Column Name="TYPE_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TYPE_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPE_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TYPE_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TYPE_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TYPE_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TYPE_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TYPE_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_USER_ROLES" Member="M_USER_ROLES">
+    <Type Name="M_USER_ROLES">
+      <Column Name="URID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ROLE_CODE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UR_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UR_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UR_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UR_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UR_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UR_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UR_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.M_USERS" Member="M_USERS">
+    <Type Name="M_USERS">
+      <Column Name="UID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USER_USERID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_PASSWORD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_FOR_USERSTATUS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE_FOR_SEX" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USER_LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USER_USE_START_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_USE_END_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USER_COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USER_COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USER_COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="timestamp" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_FTP_INFO" Member="T_FTP_INFO">
+    <Type Name="T_FTP_INFO">
+      <Column Name="FTP_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FTP_ADDRESS" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FTP_LOGIN_USER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FTP_LOGIN_PASSWORD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SERVER_INFO" Member="T_SERVER_INFO">
+    <Type Name="T_SERVER_INFO">
+      <Column Name="SERVER_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SERVER_IP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SERVER_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="SERVER_LOGIN_USER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SERVER_LOGIN_PASSWORD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CREATE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTUPDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LASTUPDATEUSER" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="COL3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+</Database>
