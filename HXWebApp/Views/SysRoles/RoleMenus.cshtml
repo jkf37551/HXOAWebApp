@@ -1,0 +1,67 @@
+﻿@model HXWebApp.Controllers.RoleMenusInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>角色菜单</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("RoleMenus", "SysRoles", FormMethod.Post, new { @class = "definewidth m20" }))
+    {
+        <table class="table table-bordered table-hover definewidth m10">
+            <tr>
+                <td width="10%" class="tableleft">角色</td>
+                <td>@Html.Encode(Model.roleInfo.ROLE_NAME)@Html.HiddenFor(m=>Model.roleInfo.ID)@Html.HiddenFor(m=>Model.roleInfo.ROLE_CODE)</td>
+            </tr>
+            <tr>
+                <td class="tableleft">权限</td>
+                <td>
+                    <ul>
+                        @if (Model.MenuInfo != null)
+                        {
+                            for (int i = 0; i < Model.MenuInfo.Count; i++)
+                            {
+                        <li>
+                            <label class='inline'>@Html.CheckBoxFor(m=>Model.MenuInfo[i].Ifchecked)@Html.Encode(Model.MenuInfo[i].text)@Html.HiddenFor(m=> Model.MenuInfo[i].code)</label>
+                            <ul>
+                                @for (int j = 0; j < Model.MenuInfo[i].menu.Count; j++)
+                                {
+                                        <li>
+                                            <label class="inline">@Html.CheckBoxFor(m=>Model.MenuInfo[i].menu[j].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].text)@Html.HiddenFor(m=> Model.MenuInfo[i].menu[j].code)</label>
+                                            <ul>
+                                                @for (int k = 0; k < Model.MenuInfo[i].menu[j].items.Count; k++)
+                                                {
+                                                    <li>
+                                                        <label class="inline">@Html.CheckBoxFor(m=>Model.MenuInfo[i].menu[j].items[k].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].items[k].text)@Html.HiddenFor(m=> Model.MenuInfo[i].menu[j].items[k].code)</label>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </li>
+                                }
+                            </ul>
+                        </li>
+                            }
+                        }
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="tableleft"></td>
+                <td>
+                    <button type="submit" class="btn btn-primary">保存</button> &nbsp;&nbsp;
+                    @Html.ActionLink("返回", "List", null, new { @class = "btn btn-success", onclick = "javascript:window.history.go(-1); return false;" })
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

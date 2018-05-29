@@ -54,6 +54,30 @@
       <Column Name="LastModify" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Users_Roles" Member="Users_Roles">
+    <Type Name="Users_Roles">
+      <Column Name="URID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RolesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Flag" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="LastModify" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_material_deliver_report" Member="V_material_deliver_report">
+    <Type Name="V_material_deliver_report">
+      <Column Name="WERKS" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="Werks_NAME" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="UserId" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dn_number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="equipment_number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="deliver_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="receive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="state_delivery" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.Users" Member="Users">
     <Type Name="Users">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -138,30 +162,6 @@
       <Column Name="SBMOD" Type="System.String" DbType="Char(4)" CanBeNull="true" />
       <Column Name="ICNUM" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="USERCARD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Users_Roles" Member="Users_Roles">
-    <Type Name="Users_Roles">
-      <Column Name="URID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="RolesId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Flag" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
-      <Column Name="LastModify" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.V_material_deliver_report" Member="V_material_deliver_report">
-    <Type Name="V_material_deliver_report">
-      <Column Name="WERKS" Type="System.String" DbType="Char(4)" CanBeNull="true" />
-      <Column Name="Werks_NAME" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
-      <Column Name="UserId" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="UserName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="dn_number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="equipment_number" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="deliver_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="receive_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="state_delivery" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

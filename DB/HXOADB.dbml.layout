@@ -20,12 +20,6 @@
         <elementListCompartment Id="aed7c7c1-998d-412c-a599-504b6d210fe4" absoluteBounds="0.51500000000000012, 1.46, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b6f7fded-b3b4-4be1-a037-813d4309507c" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
-      <DataClassMoniker Name="/HXOADBDataContext/Users" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b00f005d-eaaa-457d-9c7f-ad0f19d081aa" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 15.911081949869789" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="eb2f9ed6-6b5a-4383-87be-df35f428c916" isExpanded="false" absoluteBounds="2.625, 0.75, 2, 0.45">
       <DataClassMoniker Name="/HXOADBDataContext/Users_Roles" />
       <nestedChildShapes>
@@ -36,6 +30,12 @@
       <DataClassMoniker Name="/HXOADBDataContext/V_material_deliver_report" />
       <nestedChildShapes>
         <elementListCompartment Id="dab4619b-0bbd-434c-bc10-55cd6c84758f" absoluteBounds="0.51499999999999968, 2.71, 1.9700000000000002, 2.1576639811197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b47501c-d348-4022-aa98-a980bae7c6cd" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/HXOADBDataContext/Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ad4d33d-1a67-4ac9-acbe-8a2be7e69dbe" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 15.911081949869789" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

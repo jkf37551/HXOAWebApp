@@ -29,13 +29,18 @@ namespace HXWebApp
             }
             catch (Exception ex)
             {
-                filterContext.Result = new RedirectResult("/Home/Login/" + HttpUtility.UrlEncode(ex.Message));
+                filterContext.Result = new Controllers.BaseController<object>().SysErro(ex.Message);
             }
         }
 
+        /// <summary>
+        /// 异常处理
+        /// </summary>
+        /// <param name="filterContext">异常信息</param>
         public void OnException(ExceptionContext filterContext)
         {
-            throw new NotImplementedException();
+            filterContext.ExceptionHandled = true;  //表示异常已处理
+            filterContext.Result=(new Controllers.BaseController<object>().SysErro(filterContext.Exception.Message));
         }
     }
 }

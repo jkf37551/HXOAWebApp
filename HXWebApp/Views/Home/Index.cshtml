@@ -1,4 +1,4 @@
-﻿@model DB.Users
+﻿@model DLL.Models.MainDB.UserModel
 @{
     Layout = null;
 }
@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>鸿翔业务协作平台</title>
+    <title>鸿翔开发管理系统</title>
     @Styles.Render("~/Content/assets")
     @Scripts.Render("~/bundles/assets")
 </head>
@@ -16,11 +16,11 @@
     <div class="header">
 
         <div class="dl-title">
-            <!--<img src="/chinapost/Public/assets/img/top.png">-->鸿翔业务协作系统
+            &diams;鸿翔开发管理系统&diams;
         </div>
 
         <div class="dl-log">
-            欢迎您，<span class="dl-log-user">@Model.UserName|@Model.UserId.Trim()</span><a href="/home/login" title="注销" class="dl-log-quit">[注销]</a>
+            欢迎您，<span class="dl-log-user">@Model.USER_NAME|@Model.USER_USERID.Trim()</span><a href="/home/login" title="注销" class="dl-log-quit">[注销]</a>
         </div>
     </div>
     <div class="content">
@@ -40,7 +40,6 @@
     </div>
     <script>
         BUI.use('common/main', function () {
-            //var config = [{ "id": "1", "menu": [{ "text": "系统管理", "items": [{ "id": "12", "text": "机构管理", "href": "Node/index.html" }, { "id": "3", "text": "角色管理", "href": "Role/index.html" }, { "id": "4", "text": "用户管理", "href": "User/index.html" }, { "id": "6", "text": "菜单管理", "href": "Menu/index.html" }] }] }, { "id": "7", "homePage": "9", "menu": [{ "text": "业务管理", "items": [{ "id": "9", "text": "查询业务", "href": "Node/index.html" }] }] }];
             var config=@Html.Raw(ViewBag.menuStr);
             new PageUtil.MainPage({
                 modulesConfig: config

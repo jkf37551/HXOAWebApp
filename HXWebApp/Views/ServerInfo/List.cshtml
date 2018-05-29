@@ -1,0 +1,78 @@
+﻿@model HXWebApp.Models.PageModel<DLL.Models.MainDB.T_SERVER_INFOModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>服务器信息</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("Query", "ServerInfo", FormMethod.Post, new { @class = "form-inline definewidth m20", role = "form" }))
+    {
+        <table border="0">
+            <tr>
+                <td>服务器地址：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.SERVER_IP) &nbsp;&nbsp;</td>
+                <td>应用信息：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.SERVER_DESC) &nbsp;&nbsp;</td>
+                <td><button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;</td>
+                <td>@Html.ActionLink("新增", "Create", null, new { @class = "btn btn-success" })</td>
+            </tr>
+        </table>
+    }
+
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <th>序号</th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.SERVER_IP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.SERVER_DESC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.SERVER_LOGIN_USER)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.SERVER_LOGIN_PASSWORD)
+            </th>
+            <th>操作</th>
+        </tr>
+
+        @if (Model != null && Model.QueryData != null)
+            {
+                int i = 0;
+                foreach (var item in Model.QueryData)
+                {
+                    i++;
+                <tr>
+                    <td>@Html.Encode(i)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SERVER_IP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SERVER_DESC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SERVER_LOGIN_USER)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SERVER_LOGIN_PASSWORD)
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.ID }, new { @class = "btn btn-small btn-info" }) |
+                        @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { @class = "btn btn-small btn-danger", onclick = "javascript:return confirm('确定要删除吗？')" })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

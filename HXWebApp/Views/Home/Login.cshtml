@@ -1,5 +1,4 @@
-﻿@using HXWebApp.Models
-@model LoginModel
+﻿@model DLL.Models.MainDB.UserModel
 @{
     Layout = null;
 }
@@ -9,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" charset="utf-8" />
-    <title>鸿翔业务协作平台</title>
+    <title>鸿翔开发管理系统</title>
     @Styles.Render("~/Content/bootstrap")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -48,18 +47,26 @@
                 padding: 7px 9px;
             }
     </style>
+    <script>
+        //检查窗口为顶级窗口
+        function checkTopWd()
+        {
+            if (window.top !== window.self)
+                window.top.location = window.location;
+        }
+    </script>
 </head>
-<body>
+<body onload="checkTopWd()">
     <div class="container">
         @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-signin", role = "form" }))
         {
             @Html.AntiForgeryToken()
             <h2 class="form-signin-heading">登录系统</h2>
             @Html.ValidationSummary(true, "", new { @class = "text-danger", style = "color:red" })
-            <input type="text" name="UserId" class="input-block-level" placeholder="账号">
-            @Html.ValidationMessageFor(m => m.UserId, "", new { @class = "text-danger", style = "color:red" })
-            <input type="password" name="password" class="input-block-level" placeholder="密码">
-            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", style = "color:red" })
+            @Html.TextBoxFor(m=>m.USER_USERID,new { @class = "input-block-level", placeholder = "账号" })
+            @Html.ValidationMessageFor(m => m.USER_USERID, "", new { @class = "text-danger", style = "color:red" })
+            @Html.PasswordFor(m=>m.USER_PASSWORD,new { @class = "input-block-level", placeholder = "密码" })
+            @Html.ValidationMessageFor(m => m.USER_PASSWORD, "", new { @class = "text-danger", style = "color:red" })
             <p style="text-align:center"><button class="btn btn-large btn-primary" type="submit">登录</button></p>
         }
     </div>

@@ -1,0 +1,85 @@
+﻿@model HXWebApp.Models.PageModel<DLL.Models.MainDB.SYS_CODE_INFOModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>系统代码</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+        @using (Html.BeginForm("Query", "SysCode", FormMethod.Post, new { @class = "form-inline definewidth m20", role = "form" }))
+        {
+            <table border="0">
+                <tr>
+                    <td>代码：</td>
+                    <td>@Html.EditorFor(m => m.QueryModel.CODE_CODE) &nbsp;&nbsp;</td>
+                    <td>名称：</td>
+                    <td>@Html.EditorFor(m => m.QueryModel.CODE_NAME, new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                    <td><button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;</td>
+                    <td>@Html.ActionLink("新增", "Create", null, new { @class = "btn btn-success" })</td>
+                </tr>
+            </table>
+        }
+
+        <table class="table table-bordered table-hover definewidth m10">
+            <tr>
+                <th>序号</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.CODE_CODE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.CODE_NAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.CODE_DESC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.CODE_FOR_STATUS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.CODE_FOR_TYPE)
+                </th>
+                <th>操作</th>
+            </tr>
+
+            @if (Model != null && Model.QueryData != null)
+            {
+                int i = 0;
+                foreach (var item in Model.QueryData)
+                {
+                    i++;
+                    <tr>
+                        <td>@Html.Encode(i)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CODE_CODE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CODE_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CODE_DESC)
+                        </td>
+                        <td>
+                            @Html.Encode(HXWebApp.Helpers.HtmlHelper.GetCodeNameByCode("STATUS", item.CODE_FOR_STATUS))
+                        </td>
+                        <td>
+                            @Html.Encode(HXWebApp.Helpers.HtmlHelper.GetTypeNameByCode(item.CODE_FOR_TYPE))
+                        </td>
+                        <td>
+                            @Html.ActionLink("编辑", "Edit", new { id = item.ID }, new { @class = "btn btn-small btn-info" }) |
+                            @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { @class = "btn btn-small btn-danger", onclick = "javascript:return confirm('确定要删除吗？')" })
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+</body>
+</html>

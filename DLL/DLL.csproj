@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -43,7 +44,15 @@
   <ItemGroup>
     <Compile Include="Helpers\MySecurity.cs" />
     <Compile Include="MAINBussiness\UserDAL.cs" />
-    <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\DALInterface.cs" />
+    <Compile Include="Models\MainDB\SYS_CODE_INFOModel.cs" />
+    <Compile Include="Models\MainDB\SYS_CODE_TYPEModel.cs" />
+    <Compile Include="Models\MainDB\SYS_MENU_INFOModel.cs" />
+    <Compile Include="Models\MainDB\SYS_ROLE_INFOModel.cs" />
+    <Compile Include="Models\MainDB\UserModel.cs" />
+    <Compile Include="Models\MainDB\T_APP_INFOModel.cs" />
+    <Compile Include="Models\MainDB\T_FTP_INFOModel.cs" />
+    <Compile Include="Models\MainDB\T_SERVER_INFOModel.cs" />
     <Compile Include="Models\ResultInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

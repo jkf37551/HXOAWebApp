@@ -1,0 +1,73 @@
+﻿@model HXWebApp.Models.PageModel<DLL.Models.MainDB.SYS_ROLE_INFOModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>系统角色</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("Query", "SysRoles", FormMethod.Post, new { @class = "form-inline definewidth m20", role = "form" }))
+    {
+        <table border="0">
+            <tr>
+                <td>角色名称：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.ROLE_CODE, new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                <td>状态：</td>
+                <td>@Html.DropDownListFor(m => m.QueryModel.CODE_FOR_STATUS,HXWebApp.Helpers.HtmlHelper.GetCodeList("STATUS", ""), new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                <td><button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;</td>
+                <td>@Html.ActionLink("新增", "Create", null, new { @class = "btn btn-success" })</td>
+            </tr>
+        </table>
+    }
+
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <th>序号</th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.ROLE_CODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.ROLE_NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueryModel.CODE_FOR_STATUS)
+            </th>
+            <th>操作</th>
+        </tr>
+
+        @if (Model != null && Model.QueryData != null)
+            {
+                int i = 0;
+                foreach (var item in Model.QueryData)
+                {
+                    i++;
+                <tr>
+                    <td>@Html.Encode(i)</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ROLE_CODE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ROLE_NAME)
+                    </td>
+                    <td>
+                        @Html.Encode(HXWebApp.Helpers.HtmlHelper.GetCodeNameByCode("STATUS", item.CODE_FOR_STATUS))
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.ID }, new { @class = "btn btn-small btn-info" }) | 
+                        @Html.ActionLink("删除", "Delete", new { id = item.ID }, new { @class = "btn btn-small btn-danger", onclick = "javascript:return confirm('确定要删除吗？')" }) | 
+                        @Html.ActionLink("分配菜单", "RoleMenus", new { id = item.ID }, new { @class = "btn btn-small btn-primary" })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

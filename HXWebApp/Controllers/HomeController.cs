@@ -1,5 +1,5 @@
-﻿using DB;
-using DLL.MAINBussiness;
+﻿using DLL.MAINBussiness;
+using DLL.Models.MainDB;
 using HXWebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -9,17 +9,18 @@ using System.Web.Mvc;
 
 namespace HXWebApp.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
         // GET: Home
         [LoginValidate]
         public ActionResult Index()
         {
             //登录用户信息
-            Users loginuser = GetLoginUser();
+            UserModel loginuser = (UserModel)Session[ConstDictionary.LoginUser];
             //菜单信息
             List<TreeModel> treeItem = new List<TreeModel>();
-            var menulist = UserDAL.GetUserMenusByUserId(loginuser);
+            #region 获取菜单信息
+            var menulist = UserModel.GetUserMenusByUserId(loginuser);
             if (menulist.IsSuccess)
             {
                 treeItem = menulist.Data.Where(p => p.CODE_FOR_MENU_LEVEL.Equals("MENU_LEVEL_1") && p.CODE_FOR_STATUS.Equals("1"))
@@ -51,6 +52,7 @@ namespace HXWebApp.Controllers
                     }
                 }
             }
+            #endregion
             treeItem = treeItem.OrderBy(p => p.id).ToList();
             ViewBag.menuList = treeItem;
             ViewBag.menuStr = Newtonsoft.Json.JsonConvert.SerializeObject(treeItem);
@@ -64,16 +66,16 @@ namespace HXWebApp.Controllers
             Session.Remove(ConstDictionary.LoginUser);
             return View();
         }
-
+        
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(UserModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            var result = UserDAL.LoginValidate(new Users() { UserId = model.UserId, Password = model.Password });
+            var result = UserDAL.LoginValidate(new UserModel() {  USER_USERID = model.USER_USERID,  USER_PASSWORD = model.USER_PASSWORD });
             if (result.IsSuccess)
             {
                 //设置用户登录信息

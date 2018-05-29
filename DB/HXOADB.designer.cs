@@ -39,12 +39,12 @@ namespace DB
     partial void InsertRoles(Roles instance);
     partial void UpdateRoles(Roles instance);
     partial void DeleteRoles(Roles instance);
-    partial void InsertUsers(Users instance);
-    partial void UpdateUsers(Users instance);
-    partial void DeleteUsers(Users instance);
     partial void InsertUsers_Roles(Users_Roles instance);
     partial void UpdateUsers_Roles(Users_Roles instance);
     partial void DeleteUsers_Roles(Users_Roles instance);
+    partial void InsertUsers(Users instance);
+    partial void UpdateUsers(Users instance);
+    partial void DeleteUsers(Users instance);
     #endregion
 		
 		public HXOADBDataContext() : 
@@ -101,14 +101,6 @@ namespace DB
 			}
 		}
 		
-		public System.Data.Linq.Table<Users> Users
-		{
-			get
-			{
-				return this.GetTable<Users>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Users_Roles> Users_Roles
 		{
 			get
@@ -122,6 +114,14 @@ namespace DB
 			get
 			{
 				return this.GetTable<V_material_deliver_report>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Users> Users
+		{
+			get
+			{
+				return this.GetTable<Users>();
 			}
 		}
 	}
@@ -1244,6 +1244,377 @@ namespace DB
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users_Roles")]
+	public partial class Users_Roles : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _URID;
+		
+		private string _UserId;
+		
+		private System.Nullable<int> _RolesId;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _Flag;
+		
+		private System.Data.Linq.Binary _LastModify;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnURIDChanging(int value);
+    partial void OnURIDChanged();
+    partial void OnUserIdChanging(string value);
+    partial void OnUserIdChanged();
+    partial void OnRolesIdChanging(System.Nullable<int> value);
+    partial void OnRolesIdChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnFlagChanging(string value);
+    partial void OnFlagChanged();
+    partial void OnLastModifyChanging(System.Data.Linq.Binary value);
+    partial void OnLastModifyChanged();
+    #endregion
+		
+		public Users_Roles()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public int URID
+		{
+			get
+			{
+				return this._URID;
+			}
+			set
+			{
+				if ((this._URID != value))
+				{
+					this.OnURIDChanging(value);
+					this.SendPropertyChanging();
+					this._URID = value;
+					this.SendPropertyChanged("URID");
+					this.OnURIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesId", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> RolesId
+		{
+			get
+			{
+				return this._RolesId;
+			}
+			set
+			{
+				if ((this._RolesId != value))
+				{
+					this.OnRolesIdChanging(value);
+					this.SendPropertyChanging();
+					this._RolesId = value;
+					this.SendPropertyChanged("RolesId");
+					this.OnRolesIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Flag", DbType="VarChar(4)", UpdateCheck=UpdateCheck.Never)]
+		public string Flag
+		{
+			get
+			{
+				return this._Flag;
+			}
+			set
+			{
+				if ((this._Flag != value))
+				{
+					this.OnFlagChanging(value);
+					this.SendPropertyChanging();
+					this._Flag = value;
+					this.SendPropertyChanged("Flag");
+					this.OnFlagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastModify", AutoSync=AutoSync.Always, DbType="rowversion", IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LastModify
+		{
+			get
+			{
+				return this._LastModify;
+			}
+			set
+			{
+				if ((this._LastModify != value))
+				{
+					this.OnLastModifyChanging(value);
+					this.SendPropertyChanging();
+					this._LastModify = value;
+					this.SendPropertyChanged("LastModify");
+					this.OnLastModifyChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V_material_deliver_report")]
+	public partial class V_material_deliver_report
+	{
+		
+		private string _WERKS;
+		
+		private string _Werks_NAME;
+		
+		private string _UserId;
+		
+		private string _UserName;
+		
+		private string _Mobile;
+		
+		private string _dn_number;
+		
+		private string _equipment_number;
+		
+		private System.DateTime _deliver_time;
+		
+		private System.Nullable<System.DateTime> _receive_time;
+		
+		private string _state_delivery;
+		
+		public V_material_deliver_report()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WERKS", DbType="Char(4)")]
+		public string WERKS
+		{
+			get
+			{
+				return this._WERKS;
+			}
+			set
+			{
+				if ((this._WERKS != value))
+				{
+					this._WERKS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Werks_NAME", DbType="NVarChar(80)")]
+		public string Werks_NAME
+		{
+			get
+			{
+				return this._Werks_NAME;
+			}
+			set
+			{
+				if ((this._Werks_NAME != value))
+				{
+					this._Werks_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(20)")]
+		public string UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					this._UserId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(20)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this._UserName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this._Mobile = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dn_number", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string dn_number
+		{
+			get
+			{
+				return this._dn_number;
+			}
+			set
+			{
+				if ((this._dn_number != value))
+				{
+					this._dn_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_number", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string equipment_number
+		{
+			get
+			{
+				return this._equipment_number;
+			}
+			set
+			{
+				if ((this._equipment_number != value))
+				{
+					this._equipment_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deliver_time", DbType="DateTime NOT NULL")]
+		public System.DateTime deliver_time
+		{
+			get
+			{
+				return this._deliver_time;
+			}
+			set
+			{
+				if ((this._deliver_time != value))
+				{
+					this._deliver_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_receive_time", DbType="DateTime")]
+		public System.Nullable<System.DateTime> receive_time
+		{
+			get
+			{
+				return this._receive_time;
+			}
+			set
+			{
+				if ((this._receive_time != value))
+				{
+					this._receive_time = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state_delivery", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string state_delivery
+		{
+			get
+			{
+				return this._state_delivery;
+			}
+			set
+			{
+				if ((this._state_delivery != value))
+				{
+					this._state_delivery = value;
+				}
 			}
 		}
 	}
@@ -3250,377 +3621,6 @@ namespace DB
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Users_Roles")]
-	public partial class Users_Roles : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _URID;
-		
-		private string _UserId;
-		
-		private System.Nullable<int> _RolesId;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _Flag;
-		
-		private System.Data.Linq.Binary _LastModify;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnURIDChanging(int value);
-    partial void OnURIDChanged();
-    partial void OnUserIdChanging(string value);
-    partial void OnUserIdChanged();
-    partial void OnRolesIdChanging(System.Nullable<int> value);
-    partial void OnRolesIdChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
-    partial void OnStatusChanged();
-    partial void OnFlagChanging(string value);
-    partial void OnFlagChanged();
-    partial void OnLastModifyChanging(System.Data.Linq.Binary value);
-    partial void OnLastModifyChanged();
-    #endregion
-		
-		public Users_Roles()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public int URID
-		{
-			get
-			{
-				return this._URID;
-			}
-			set
-			{
-				if ((this._URID != value))
-				{
-					this.OnURIDChanging(value);
-					this.SendPropertyChanging();
-					this._URID = value;
-					this.SendPropertyChanged("URID");
-					this.OnURIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this.OnUserIdChanging(value);
-					this.SendPropertyChanging();
-					this._UserId = value;
-					this.SendPropertyChanged("UserId");
-					this.OnUserIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RolesId", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> RolesId
-		{
-			get
-			{
-				return this._RolesId;
-			}
-			set
-			{
-				if ((this._RolesId != value))
-				{
-					this.OnRolesIdChanging(value);
-					this.SendPropertyChanging();
-					this._RolesId = value;
-					this.SendPropertyChanged("RolesId");
-					this.OnRolesIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Flag", DbType="VarChar(4)", UpdateCheck=UpdateCheck.Never)]
-		public string Flag
-		{
-			get
-			{
-				return this._Flag;
-			}
-			set
-			{
-				if ((this._Flag != value))
-				{
-					this.OnFlagChanging(value);
-					this.SendPropertyChanging();
-					this._Flag = value;
-					this.SendPropertyChanged("Flag");
-					this.OnFlagChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastModify", AutoSync=AutoSync.Always, DbType="rowversion", IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary LastModify
-		{
-			get
-			{
-				return this._LastModify;
-			}
-			set
-			{
-				if ((this._LastModify != value))
-				{
-					this.OnLastModifyChanging(value);
-					this.SendPropertyChanging();
-					this._LastModify = value;
-					this.SendPropertyChanged("LastModify");
-					this.OnLastModifyChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V_material_deliver_report")]
-	public partial class V_material_deliver_report
-	{
-		
-		private string _WERKS;
-		
-		private string _Werks_NAME;
-		
-		private string _UserId;
-		
-		private string _UserName;
-		
-		private string _Mobile;
-		
-		private string _dn_number;
-		
-		private string _equipment_number;
-		
-		private System.DateTime _deliver_time;
-		
-		private System.Nullable<System.DateTime> _receive_time;
-		
-		private string _state_delivery;
-		
-		public V_material_deliver_report()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WERKS", DbType="Char(4)")]
-		public string WERKS
-		{
-			get
-			{
-				return this._WERKS;
-			}
-			set
-			{
-				if ((this._WERKS != value))
-				{
-					this._WERKS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Werks_NAME", DbType="NVarChar(80)")]
-		public string Werks_NAME
-		{
-			get
-			{
-				return this._Werks_NAME;
-			}
-			set
-			{
-				if ((this._Werks_NAME != value))
-				{
-					this._Werks_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="NVarChar(20)")]
-		public string UserId
-		{
-			get
-			{
-				return this._UserId;
-			}
-			set
-			{
-				if ((this._UserId != value))
-				{
-					this._UserId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(20)")]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this._UserName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
-		public string Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this._Mobile = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dn_number", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string dn_number
-		{
-			get
-			{
-				return this._dn_number;
-			}
-			set
-			{
-				if ((this._dn_number != value))
-				{
-					this._dn_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_equipment_number", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string equipment_number
-		{
-			get
-			{
-				return this._equipment_number;
-			}
-			set
-			{
-				if ((this._equipment_number != value))
-				{
-					this._equipment_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deliver_time", DbType="DateTime NOT NULL")]
-		public System.DateTime deliver_time
-		{
-			get
-			{
-				return this._deliver_time;
-			}
-			set
-			{
-				if ((this._deliver_time != value))
-				{
-					this._deliver_time = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_receive_time", DbType="DateTime")]
-		public System.Nullable<System.DateTime> receive_time
-		{
-			get
-			{
-				return this._receive_time;
-			}
-			set
-			{
-				if ((this._receive_time != value))
-				{
-					this._receive_time = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state_delivery", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string state_delivery
-		{
-			get
-			{
-				return this._state_delivery;
-			}
-			set
-			{
-				if ((this._state_delivery != value))
-				{
-					this._state_delivery = value;
-				}
 			}
 		}
 	}
