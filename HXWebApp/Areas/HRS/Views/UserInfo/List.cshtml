@@ -1,0 +1,134 @@
+﻿@model HXWebApp.Models.PageModel<DLL.Models.HRSDB.HR_UserModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>绩效平台_用户</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("Query", "UserInfo", FormMethod.Post, new { @class = "form-inline definewidth m20", role = "form" }))
+    {
+        <table border="0">
+            <tr>
+                <td>工号：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.UserId, new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                <td>姓名：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.UserName, new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                <td>成本中心：</td>
+                <td>@Html.EditorFor(m => m.QueryModel.KOSTL, new { @class = "abc input-default" }) &nbsp;&nbsp;</td>
+                <td><button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;</td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered table-hover definewidth m10">
+            <tr>
+                <th>序号</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.UserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.DeptId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.PostPriv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.STAT2)
+                </th>
+                <th>操作</th>
+            </tr>
+
+            @if (Model != null && Model.QueryData != null)
+        {
+            int i = 0;
+            foreach (var item in Model.QueryData)
+            {
+                i++;
+        <tr>
+            <td>@Html.Encode(i)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostPriv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STAT2)
+            </td>
+            <td>
+                @Html.ActionLink("编辑", "Edit", new { id = item.ID }, new { @class = "btn btn-small btn-info" }) |
+                @Html.ActionLink("详细信息", "Detail", new { id = item.ID }, new { @class = "btn btn-small btn-success" })
+            </td>
+        </tr>
+            }
+        }
+        </table>
+
+        <div class="inline pull-right page">
+            @Html.Encode(Model.Total_Recoder) 条记录 @Html.Encode(Model.Current_PageId)/@Html.Encode(Model.Total_Page) 页
+            @if (Model.Current_PageId > 1)
+        {
+        <a href='#'>首页</a>
+        <a href='#'>上一页</a>
+        }
+        else
+        {
+                <span>首页</span>
+                <span>上一页</span>
+        }
+            @if (Model.Current_PageId > 2)
+        {
+        <a href='#'>@Html.Encode(Model.Current_PageId - 2)</a>
+        <a href='#'>@Html.Encode(Model.Current_PageId - 1)</a>
+        }
+        else
+        {
+            if (Model.Current_PageId > 1)
+            {
+        <a href='#'>@Html.Encode(Model.Current_PageId - 1)</a>
+            }
+        }
+            <span class='current'>@Html.Encode(Model.Current_PageId)</span>
+            @if ((Model.Current_PageId + 2) <= Model.Total_Page)
+        {
+        <a href='#'>@Html.Encode(Model.Current_PageId + 1)</a>
+        <a href='#'>@Html.Encode(Model.Current_PageId + 2)</a>
+        }
+        else
+        {
+            if ((Model.Current_PageId + 1) <= Model.Total_Page)
+            {
+        <a href='#'>@Html.Encode(Model.Current_PageId + 1)</a>
+            }
+        }
+            @if (Model.Total_Page > Model.Current_PageId)
+        {
+        <a href='#'>下一页</a>
+        <a href='#'>尾页</a>
+        }
+        else
+        {
+                <span>下一页</span>
+                <span>尾页</span>
+        }
+        </div>
+    }
+</body>
+</html>

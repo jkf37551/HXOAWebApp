@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DLL.Models.MainDB
 {
+    /// <summary>
+    /// 系统用户
+    /// </summary>
     public class UserModel
     {
         #region 属性

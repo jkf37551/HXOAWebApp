@@ -1,0 +1,96 @@
+﻿@model DLL.Models.HRSDB.HR_UserModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>详细信息</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <h4>详细信息</h4>
+    <hr />
+    <table class="table table-bordered table-hover definewidth m10">
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.UserId)</td>
+            <td>@Html.Encode(Model.UserId)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.UserName)</td>
+            <td>@Html.Encode(Model.UserName)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.STAT2)</td>
+            <td>@Html.Encode(Model.STAT2)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.PERSK)</td>
+            <td>@Html.Encode(Model.PERSK)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.KOSTL)</td>
+            <td>@Html.Encode(Model.KOSTL)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.PostPriv)</td>
+            <td>@Html.Encode(Model.PostPriv)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.UserPosId)</td>
+            <td>@Html.Encode(Model.UserPosId)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.Sex)</td>
+            <td>@Html.Encode(Model.Sex)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.DeptId)</td>
+            <td>@Html.Encode(Model.DeptId)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.DeptId2)</td>
+            <td>@Html.Encode(Model.DeptId2)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.BUKRS)</td>
+            <td>@Html.Encode(Model.BUKRS)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.ICNUM)</td>
+            <td>@Html.Encode(Model.ICNUM)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.PERSG)</td>
+            <td>@Html.Encode(Model.PERSG)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.WERKS)</td>
+            <td>@Html.Encode(Model.WERKS)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.BTRTL)</td>
+            <td>@Html.Encode(Model.BTRTL)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.ABKRS)</td>
+            <td>@Html.Encode(Model.ABKRS)</td>
+        </tr>
+        <tr>
+            <td width="10%" class="tableleft">@Html.LabelFor(model => model.Mobile)</td>
+            <td>@Html.Encode(Model.Mobile)</td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                @Html.ActionLink("返回", "List", "SysMenu", null, new { @class = "btn btn-info", onclick = "javascript:window.history.go(-1); return false;" })
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

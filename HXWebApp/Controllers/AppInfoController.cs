@@ -20,8 +20,16 @@ namespace HXWebApp.Controllers
         public ActionResult Query(PageModel<T_APP_INFOModel> Model)
         {
             _pageInfo = Model;
-            _pageInfo.QueryData = Model.QueryModel.GetList(Model.QueryModel).Data;
-            return View("List", _pageInfo);
+            var result = Model.QueryModel.GetList(Model.QueryModel);
+            if (result.IsSuccess)
+            {
+                _pageInfo.QueryData = result.Data;
+                return View("List", _pageInfo);
+            }
+            else
+            {
+                return SysErro(result.Message);
+            }
         }
 
         public ActionResult Create()

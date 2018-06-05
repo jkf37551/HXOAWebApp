@@ -1,4 +1,5 @@
-﻿using DLL.Models.MainDB;
+﻿using DLL.Models.HRSDB;
+using HXWebApp.Controllers;
 using HXWebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -6,18 +7,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace HXWebApp.Controllers
+namespace HXWebApp.Areas.HRS.Controllers
 {
     [LoginValidate]
-    public class FTPInfoController : BaseController<T_FTP_INFOModel>
+    public class UserInfoController : BaseController<HR_UserModel>
     {
-        // GET: FTPInfo
+        // GET: /HRS/UserInfo
         public ActionResult List()
         {
             return View(_pageInfo);
         }
 
-        public ActionResult Query(PageModel<T_FTP_INFOModel> Model)
+        public ActionResult Query(PageModel<HR_UserModel> Model)
         {
             _pageInfo = Model;
             var result = Model.QueryModel.GetList(Model.QueryModel);
@@ -32,32 +33,24 @@ namespace HXWebApp.Controllers
             }
         }
 
-        public ActionResult Create()
+        public ActionResult Detail(long id)
         {
-            return View(new T_FTP_INFOModel());
-        }
-
-        [HttpPost]
-        public ActionResult Create(T_FTP_INFOModel Model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(Model);
-            }
-            var resualt = Model.Insert(Model, GetLoginUser());
+            var resualt = new HR_UserModel().GetEnetityByID(id);
             if (resualt.IsSuccess)
             {
-                return SysInfo("/FTPInfo/List");
+                //操作成功
+                return View(resualt.Data);
             }
             else
             {
+                //操作失败
                 return SysErro(resualt.Message);
             }
         }
-
+        
         public ActionResult Edit(long id)
         {
-            var resualt = new T_FTP_INFOModel().GetEnetityByID(id);
+            var resualt = new HR_UserModel().GetEnetityByID(id);
             if (resualt.IsSuccess)
             {
                 //操作成功
@@ -71,7 +64,7 @@ namespace HXWebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(T_FTP_INFOModel Model)
+        public ActionResult Edit(HR_UserModel Model)
         {
             if (!ModelState.IsValid)
             {
@@ -80,20 +73,7 @@ namespace HXWebApp.Controllers
             var resualt = Model.Update(Model, GetLoginUser());
             if (resualt.IsSuccess)
             {
-                return SysInfo("/FTPInfo/List");
-            }
-            else
-            {
-                return SysErro(resualt.Message);
-            }
-        }
-
-        public ActionResult Delete(long id)
-        {
-            var resualt = new T_FTP_INFOModel().Delete(id, GetLoginUser());
-            if (resualt.IsSuccess)
-            {
-                return SysInfo("/FTPInfo/List");
+                return SysInfo("/SysCode/List");
             }
             else
             {

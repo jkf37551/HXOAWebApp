@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DLL.Models.MainDB
 {
+    /// <summary>
+    /// FTP信息
+    /// </summary>
     public class T_FTP_INFOModel
     {
         #region 属性

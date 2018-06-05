@@ -11,6 +11,7 @@
     <AssemblyName>DLL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,6 +48,7 @@
     <Compile Include="Helpers\MySecurity.cs" />
     <Compile Include="MAINBussiness\UserDAL.cs" />
     <Compile Include="Models\DALInterface.cs" />
+    <Compile Include="Models\HRSDB\HR_UserModel.cs" />
     <Compile Include="Models\MainDB\SYS_CODE_INFOModel.cs" />
     <Compile Include="Models\MainDB\SYS_CODE_TYPEModel.cs" />
     <Compile Include="Models\MainDB\SYS_MENU_INFOModel.cs" />
