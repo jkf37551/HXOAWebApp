@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace DLL.Models
 {
+    /// <summary>
+    /// 返回结果
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class ResultInfo<T>
     {
+        #region 属性
         /// <summary>
         /// 操作结果：true操作成功,false操作失败
         /// </summary>
@@ -25,6 +30,25 @@ namespace DLL.Models
         /// </summary>
         public T Data { get; set; }
 
+        /// <summary>
+        /// 总记录数
+        /// </summary>
+        public int Total_Recoder { get; set; }
+        /// <summary>
+        /// 每页显示数(最大)
+        /// </summary>
+        public int Page_Size { get; set; }
+        /// <summary>
+        /// 总页面数
+        /// </summary>
+        public int Total_Page { get; set; }
+        /// <summary>
+        /// 当前页面ID(要查询页面ID)
+        /// </summary>
+        public int Current_PageId { get; set; }
+        #endregion
+
+        #region 方法
         /// <summary>
         /// 构造函数(默认初始化为操作失败)
         /// </summary>
@@ -80,5 +104,6 @@ namespace DLL.Models
             Message = message;
             Data = data;
         }
+        #endregion
     }
 }

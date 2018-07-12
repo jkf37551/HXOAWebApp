@@ -1,0 +1,43 @@
+﻿@model DLL.Models.MainDB.UserModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增</title>
+    @Styles.Render("~/Content/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    @using (Html.BeginForm("Create", "SysUser", FormMethod.Post, new { @class = "definewidth m20" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>新增用户</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+        <table class="table table-bordered table-hover definewidth m10">
+            <tr>
+                <td width="10%" class="tableleft">@Html.LabelFor(model => model.USER_USERID)</td>
+                <td>
+                    @Html.EditorFor(model => model.USER_USERID, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USER_USERID, "", new { @class = "text-danger", style = "color:red" })
+                    @Html.HiddenFor(model=>model.USER_PASSWORD)
+                </td>
+            </tr>
+            <tr>
+                <td class="tableleft"></td>
+                <td>
+                    <input type="submit" class="btn btn-primary" value="保存" /> &nbsp;&nbsp;@Html.ActionLink("取消", "List", "SysUser", null, new { @class = "btn btn-info", onclick = "javascript:window.history.go(-1); return false;" })
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

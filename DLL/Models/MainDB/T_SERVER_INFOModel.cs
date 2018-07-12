@@ -193,8 +193,6 @@ namespace DLL.Models.MainDB
                     v.SERVER_DESC = model.SERVER_DESC;
                     v.SERVER_LOGIN_USER = model.SERVER_LOGIN_USER;
                     v.SERVER_LOGIN_PASSWORD = model.SERVER_LOGIN_PASSWORD;
-                    v.CREATE_DATE = DateTime.Now;
-                    v.CREATEUSER = user.USER_USERID;
                     v.LASTUPDATE = DateTime.Now;
                     v.LASTUPDATEUSER = user.USER_USERID;
                     DB.SubmitChanges();

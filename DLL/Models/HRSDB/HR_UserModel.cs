@@ -140,13 +140,14 @@ namespace DLL.Models.HRSDB
         /// 获取用户信息
         /// </summary>
         /// <param name="user">查询模型</param>
+        /// <param name="Current_Page">查询页面</param>
+        /// <param name="Page_Size">每页显示数</param>
         /// <returns></returns>
-        public ResultInfo<List<HR_UserModel>> GetList(HR_UserModel user)
+        public ResultInfo<List<HR_UserModel>> GetList(HR_UserModel user,int Current_Page,int Page_Size)
         {
             ResultInfo<List<HR_UserModel>> resualt = new ResultInfo<List<HR_UserModel>>();
             try
             {
-                List<HR_UserModel> MenuList = new List<HR_UserModel>();
                 using (HXOADBDataContext DB = new HXOADBDataContext())
                 {
                     var items = DB.Users.Where(p => 1 == 1);
@@ -162,32 +163,39 @@ namespace DLL.Models.HRSDB
                         items = items.Where(p => p.BUKRS.Contains(user.BUKRS));
                     if (!string.IsNullOrEmpty(user.KOSTL))
                         items = items.Where(p => p.KOSTL.Contains(user.KOSTL));
-                    MenuList = items.Select(p => new HR_UserModel()
+                    //获取指定页面数据
+                    resualt.Total_Recoder = items.Count();
+                    resualt.Current_PageId = Current_Page;
+                    resualt.Page_Size = Page_Size;
+                    if (Page_Size > 0 && Current_Page > 0)
                     {
-                        ID = p.Id,
-                        UserId = p.UserId,
-                        UserName = p.UserName,
-                        Sex = (p.Sex??0).ToString(),
-                        BUKRS = p.BUKRS,
-                        KOSTL = p.KOSTL,
+                        resualt.Total_Page = resualt.Total_Recoder / Page_Size + (resualt.Total_Recoder % Page_Size > 0 ? 1 : 0);
+                        resualt.Data = items.OrderBy(p => p.Id).Skip(Page_Size * (Current_Page - 1)).Take(Page_Size).Select(p => new HR_UserModel()
+                        {
+                            ID = p.Id,
+                            UserId = p.UserId,
+                            UserName = p.UserName,
+                            Sex = (p.Sex ?? 0).ToString(),
+                            BUKRS = p.BUKRS,
+                            KOSTL = p.KOSTL,
 
-                        PostPriv = p.PostPriv,
-                        UserPosId = p.UserPosId??0,
-                        DeptId = p.DeptId??0,
-                        DeptId2 = p.DeptId2,
-                        ICNUM = p.ICNUM,
-                        Mobile = p.Mobile,
-                        Password = p.Password,
-                        PERSG = (p.PERSG??0).ToString(),
-                        PERSK = p.PERSK,
-                        ABKRS = p.ABKRS,
-                        STAT2 = (p.STAT2??0).ToString(),
-                        WERKS = p.WERKS,
-                        BTRTL = p.BTRTL
-                    }).ToList();
+                            PostPriv = p.PostPriv,
+                            UserPosId = p.UserPosId ?? 0,
+                            DeptId = p.DeptId ?? 0,
+                            DeptId2 = p.DeptId2,
+                            ICNUM = p.ICNUM,
+                            Mobile = p.Mobile,
+                            Password = p.Password,
+                            PERSG = (p.PERSG ?? 0).ToString(),
+                            PERSK = p.PERSK,
+                            ABKRS = p.ABKRS,
+                            STAT2 = (p.STAT2 ?? 0).ToString(),
+                            WERKS = p.WERKS,
+                            BTRTL = p.BTRTL
+                        }).ToList();
+                    }
                 }
                 resualt.IsSuccess = true;
-                resualt.Data = MenuList;
             }
             catch (Exception ex)
             {

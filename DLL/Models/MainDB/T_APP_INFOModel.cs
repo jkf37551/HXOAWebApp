@@ -31,7 +31,6 @@ namespace DLL.Models.MainDB
         /// <summary>
         /// 应用IP
         /// </summary>
-        [Required]
         [Display(Name = "应用IP")]
         public string APP_IP { get; set; }
 
@@ -193,10 +192,8 @@ namespace DLL.Models.MainDB
                     v.APP_DESC = model.APP_DESC;
                     v.APP_IN_URL = model.APP_IN_URL;
                     v.APP_OUT_URL = model.APP_OUT_URL;
-                    v.CREATE_DATE = DateTime.Now;
                     v.LASTUPDATE = DateTime.Now;
                     v.LASTUPDATEUSER = user.USER_USERID;
-                    v.CREATEUSER = user.USER_USERID;
                     DB.SubmitChanges();
                 }
                 Resualt.Data = true;

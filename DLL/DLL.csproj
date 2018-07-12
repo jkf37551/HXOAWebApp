@@ -49,6 +49,7 @@
     <Compile Include="MAINBussiness\UserDAL.cs" />
     <Compile Include="Models\DALInterface.cs" />
     <Compile Include="Models\HRSDB\HR_UserModel.cs" />
+    <Compile Include="Models\HRSDB\HR_WerksModel.cs" />
     <Compile Include="Models\MainDB\SYS_CODE_INFOModel.cs" />
     <Compile Include="Models\MainDB\SYS_CODE_TYPEModel.cs" />
     <Compile Include="Models\MainDB\SYS_MENU_INFOModel.cs" />

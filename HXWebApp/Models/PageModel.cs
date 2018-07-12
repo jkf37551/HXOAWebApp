@@ -37,8 +37,17 @@ namespace HXWebApp.Models
         public int Current_PageId{get;set;}
         
         /// <summary>
-        /// 分页查询页面地址
+        /// 分页查询控制器
         /// </summary>
-        public string PageQueryUrl { get; set; }
+        public string Controll { get; set; }
+        /// <summary>
+        /// 分页查询action
+        /// </summary>
+        public string Action { get; set; }
+
+        /// <summary>
+        /// 模型SeesionKey(用于保存和设置查询信息)
+        /// </summary>
+        public string Key_Model { get; set; }
     }
 }

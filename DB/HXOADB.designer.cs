@@ -45,6 +45,9 @@ namespace DB
     partial void InsertUsers(Users instance);
     partial void UpdateUsers(Users instance);
     partial void DeleteUsers(Users instance);
+    partial void InsertT_HR_SAP_WERKS(T_HR_SAP_WERKS instance);
+    partial void UpdateT_HR_SAP_WERKS(T_HR_SAP_WERKS instance);
+    partial void DeleteT_HR_SAP_WERKS(T_HR_SAP_WERKS instance);
     #endregion
 		
 		public HXOADBDataContext() : 
@@ -122,6 +125,14 @@ namespace DB
 			get
 			{
 				return this.GetTable<Users>();
+			}
+		}
+		
+		public System.Data.Linq.Table<T_HR_SAP_WERKS> T_HR_SAP_WERKS
+		{
+			get
+			{
+				return this.GetTable<T_HR_SAP_WERKS>();
 			}
 		}
 	}
@@ -3600,6 +3611,740 @@ namespace DB
 					this._USERCARD = value;
 					this.SendPropertyChanged("USERCARD");
 					this.OnUSERCARDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.T_HR_SAP_WERKS")]
+	public partial class T_HR_SAP_WERKS : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _WID;
+		
+		private string _WERKS;
+		
+		private string _NAME1;
+		
+		private System.Nullable<int> _STATS;
+		
+		private string _INPRO;
+		
+		private string _BZIRK;
+		
+		private string _BZIRK2;
+		
+		private System.Nullable<decimal> _LOWPAY;
+		
+		private System.Nullable<decimal> _RLOWPAY;
+		
+		private string _BUKRS;
+		
+		private string _KHINR;
+		
+		private string _AREA;
+		
+		private System.Nullable<System.DateTime> _PITIME;
+		
+		private System.Nullable<System.DateTime> _CHAGEDATE;
+		
+		private System.Nullable<int> _CHAGEUSER;
+		
+		private System.Data.Linq.Binary _LastModify;
+		
+		private System.Nullable<System.DateTime> _EROED;
+		
+		private System.Nullable<int> _NEWSTORE;
+		
+		private string _ZTYPE;
+		
+		private string _Col1;
+		
+		private string _Col2;
+		
+		private string _Col3;
+		
+		private string _Col4;
+		
+		private string _Col5;
+		
+		private string _Col6;
+		
+		private string _Col7;
+		
+		private string _Col8;
+		
+		private string _Col9;
+		
+		private string _Col10;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnWIDChanging(long value);
+    partial void OnWIDChanged();
+    partial void OnWERKSChanging(string value);
+    partial void OnWERKSChanged();
+    partial void OnNAME1Changing(string value);
+    partial void OnNAME1Changed();
+    partial void OnSTATSChanging(System.Nullable<int> value);
+    partial void OnSTATSChanged();
+    partial void OnINPROChanging(string value);
+    partial void OnINPROChanged();
+    partial void OnBZIRKChanging(string value);
+    partial void OnBZIRKChanged();
+    partial void OnBZIRK2Changing(string value);
+    partial void OnBZIRK2Changed();
+    partial void OnLOWPAYChanging(System.Nullable<decimal> value);
+    partial void OnLOWPAYChanged();
+    partial void OnRLOWPAYChanging(System.Nullable<decimal> value);
+    partial void OnRLOWPAYChanged();
+    partial void OnBUKRSChanging(string value);
+    partial void OnBUKRSChanged();
+    partial void OnKHINRChanging(string value);
+    partial void OnKHINRChanged();
+    partial void OnAREAChanging(string value);
+    partial void OnAREAChanged();
+    partial void OnPITIMEChanging(System.Nullable<System.DateTime> value);
+    partial void OnPITIMEChanged();
+    partial void OnCHAGEDATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCHAGEDATEChanged();
+    partial void OnCHAGEUSERChanging(System.Nullable<int> value);
+    partial void OnCHAGEUSERChanged();
+    partial void OnLastModifyChanging(System.Data.Linq.Binary value);
+    partial void OnLastModifyChanged();
+    partial void OnEROEDChanging(System.Nullable<System.DateTime> value);
+    partial void OnEROEDChanged();
+    partial void OnNEWSTOREChanging(System.Nullable<int> value);
+    partial void OnNEWSTOREChanged();
+    partial void OnZTYPEChanging(string value);
+    partial void OnZTYPEChanged();
+    partial void OnCol1Changing(string value);
+    partial void OnCol1Changed();
+    partial void OnCol2Changing(string value);
+    partial void OnCol2Changed();
+    partial void OnCol3Changing(string value);
+    partial void OnCol3Changed();
+    partial void OnCol4Changing(string value);
+    partial void OnCol4Changed();
+    partial void OnCol5Changing(string value);
+    partial void OnCol5Changed();
+    partial void OnCol6Changing(string value);
+    partial void OnCol6Changed();
+    partial void OnCol7Changing(string value);
+    partial void OnCol7Changed();
+    partial void OnCol8Changing(string value);
+    partial void OnCol8Changed();
+    partial void OnCol9Changing(string value);
+    partial void OnCol9Changed();
+    partial void OnCol10Changing(string value);
+    partial void OnCol10Changed();
+    #endregion
+		
+		public T_HR_SAP_WERKS()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public long WID
+		{
+			get
+			{
+				return this._WID;
+			}
+			set
+			{
+				if ((this._WID != value))
+				{
+					this.OnWIDChanging(value);
+					this.SendPropertyChanging();
+					this._WID = value;
+					this.SendPropertyChanged("WID");
+					this.OnWIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WERKS", DbType="Char(4) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string WERKS
+		{
+			get
+			{
+				return this._WERKS;
+			}
+			set
+			{
+				if ((this._WERKS != value))
+				{
+					this.OnWERKSChanging(value);
+					this.SendPropertyChanging();
+					this._WERKS = value;
+					this.SendPropertyChanged("WERKS");
+					this.OnWERKSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME1", DbType="NVarChar(80)", UpdateCheck=UpdateCheck.Never)]
+		public string NAME1
+		{
+			get
+			{
+				return this._NAME1;
+			}
+			set
+			{
+				if ((this._NAME1 != value))
+				{
+					this.OnNAME1Changing(value);
+					this.SendPropertyChanging();
+					this._NAME1 = value;
+					this.SendPropertyChanged("NAME1");
+					this.OnNAME1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATS", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> STATS
+		{
+			get
+			{
+				return this._STATS;
+			}
+			set
+			{
+				if ((this._STATS != value))
+				{
+					this.OnSTATSChanging(value);
+					this.SendPropertyChanging();
+					this._STATS = value;
+					this.SendPropertyChanged("STATS");
+					this.OnSTATSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPRO", DbType="Char(4)", UpdateCheck=UpdateCheck.Never)]
+		public string INPRO
+		{
+			get
+			{
+				return this._INPRO;
+			}
+			set
+			{
+				if ((this._INPRO != value))
+				{
+					this.OnINPROChanging(value);
+					this.SendPropertyChanging();
+					this._INPRO = value;
+					this.SendPropertyChanged("INPRO");
+					this.OnINPROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BZIRK", DbType="VarChar(8)", UpdateCheck=UpdateCheck.Never)]
+		public string BZIRK
+		{
+			get
+			{
+				return this._BZIRK;
+			}
+			set
+			{
+				if ((this._BZIRK != value))
+				{
+					this.OnBZIRKChanging(value);
+					this.SendPropertyChanging();
+					this._BZIRK = value;
+					this.SendPropertyChanged("BZIRK");
+					this.OnBZIRKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BZIRK2", DbType="VarChar(8)", UpdateCheck=UpdateCheck.Never)]
+		public string BZIRK2
+		{
+			get
+			{
+				return this._BZIRK2;
+			}
+			set
+			{
+				if ((this._BZIRK2 != value))
+				{
+					this.OnBZIRK2Changing(value);
+					this.SendPropertyChanging();
+					this._BZIRK2 = value;
+					this.SendPropertyChanged("BZIRK2");
+					this.OnBZIRK2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LOWPAY", DbType="Decimal(13,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> LOWPAY
+		{
+			get
+			{
+				return this._LOWPAY;
+			}
+			set
+			{
+				if ((this._LOWPAY != value))
+				{
+					this.OnLOWPAYChanging(value);
+					this.SendPropertyChanging();
+					this._LOWPAY = value;
+					this.SendPropertyChanged("LOWPAY");
+					this.OnLOWPAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RLOWPAY", DbType="Decimal(13,2)", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> RLOWPAY
+		{
+			get
+			{
+				return this._RLOWPAY;
+			}
+			set
+			{
+				if ((this._RLOWPAY != value))
+				{
+					this.OnRLOWPAYChanging(value);
+					this.SendPropertyChanging();
+					this._RLOWPAY = value;
+					this.SendPropertyChanged("RLOWPAY");
+					this.OnRLOWPAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUKRS", DbType="Char(4)", UpdateCheck=UpdateCheck.Never)]
+		public string BUKRS
+		{
+			get
+			{
+				return this._BUKRS;
+			}
+			set
+			{
+				if ((this._BUKRS != value))
+				{
+					this.OnBUKRSChanging(value);
+					this.SendPropertyChanging();
+					this._BUKRS = value;
+					this.SendPropertyChanged("BUKRS");
+					this.OnBUKRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KHINR", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string KHINR
+		{
+			get
+			{
+				return this._KHINR;
+			}
+			set
+			{
+				if ((this._KHINR != value))
+				{
+					this.OnKHINRChanging(value);
+					this.SendPropertyChanging();
+					this._KHINR = value;
+					this.SendPropertyChanged("KHINR");
+					this.OnKHINRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AREA", DbType="Char(4)", UpdateCheck=UpdateCheck.Never)]
+		public string AREA
+		{
+			get
+			{
+				return this._AREA;
+			}
+			set
+			{
+				if ((this._AREA != value))
+				{
+					this.OnAREAChanging(value);
+					this.SendPropertyChanging();
+					this._AREA = value;
+					this.SendPropertyChanged("AREA");
+					this.OnAREAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PITIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> PITIME
+		{
+			get
+			{
+				return this._PITIME;
+			}
+			set
+			{
+				if ((this._PITIME != value))
+				{
+					this.OnPITIMEChanging(value);
+					this.SendPropertyChanging();
+					this._PITIME = value;
+					this.SendPropertyChanged("PITIME");
+					this.OnPITIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAGEDATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CHAGEDATE
+		{
+			get
+			{
+				return this._CHAGEDATE;
+			}
+			set
+			{
+				if ((this._CHAGEDATE != value))
+				{
+					this.OnCHAGEDATEChanging(value);
+					this.SendPropertyChanging();
+					this._CHAGEDATE = value;
+					this.SendPropertyChanged("CHAGEDATE");
+					this.OnCHAGEDATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHAGEUSER", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> CHAGEUSER
+		{
+			get
+			{
+				return this._CHAGEUSER;
+			}
+			set
+			{
+				if ((this._CHAGEUSER != value))
+				{
+					this.OnCHAGEUSERChanging(value);
+					this.SendPropertyChanging();
+					this._CHAGEUSER = value;
+					this.SendPropertyChanged("CHAGEUSER");
+					this.OnCHAGEUSERChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastModify", AutoSync=AutoSync.Always, DbType="rowversion", CanBeNull=true, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary LastModify
+		{
+			get
+			{
+				return this._LastModify;
+			}
+			set
+			{
+				if ((this._LastModify != value))
+				{
+					this.OnLastModifyChanging(value);
+					this.SendPropertyChanging();
+					this._LastModify = value;
+					this.SendPropertyChanged("LastModify");
+					this.OnLastModifyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EROED", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EROED
+		{
+			get
+			{
+				return this._EROED;
+			}
+			set
+			{
+				if ((this._EROED != value))
+				{
+					this.OnEROEDChanging(value);
+					this.SendPropertyChanging();
+					this._EROED = value;
+					this.SendPropertyChanged("EROED");
+					this.OnEROEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEWSTORE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> NEWSTORE
+		{
+			get
+			{
+				return this._NEWSTORE;
+			}
+			set
+			{
+				if ((this._NEWSTORE != value))
+				{
+					this.OnNEWSTOREChanging(value);
+					this.SendPropertyChanging();
+					this._NEWSTORE = value;
+					this.SendPropertyChanged("NEWSTORE");
+					this.OnNEWSTOREChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ZTYPE", DbType="Char(4)", UpdateCheck=UpdateCheck.Never)]
+		public string ZTYPE
+		{
+			get
+			{
+				return this._ZTYPE;
+			}
+			set
+			{
+				if ((this._ZTYPE != value))
+				{
+					this.OnZTYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ZTYPE = value;
+					this.SendPropertyChanged("ZTYPE");
+					this.OnZTYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col1", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col1
+		{
+			get
+			{
+				return this._Col1;
+			}
+			set
+			{
+				if ((this._Col1 != value))
+				{
+					this.OnCol1Changing(value);
+					this.SendPropertyChanging();
+					this._Col1 = value;
+					this.SendPropertyChanged("Col1");
+					this.OnCol1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col2", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col2
+		{
+			get
+			{
+				return this._Col2;
+			}
+			set
+			{
+				if ((this._Col2 != value))
+				{
+					this.OnCol2Changing(value);
+					this.SendPropertyChanging();
+					this._Col2 = value;
+					this.SendPropertyChanged("Col2");
+					this.OnCol2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col3", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col3
+		{
+			get
+			{
+				return this._Col3;
+			}
+			set
+			{
+				if ((this._Col3 != value))
+				{
+					this.OnCol3Changing(value);
+					this.SendPropertyChanging();
+					this._Col3 = value;
+					this.SendPropertyChanged("Col3");
+					this.OnCol3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col4", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col4
+		{
+			get
+			{
+				return this._Col4;
+			}
+			set
+			{
+				if ((this._Col4 != value))
+				{
+					this.OnCol4Changing(value);
+					this.SendPropertyChanging();
+					this._Col4 = value;
+					this.SendPropertyChanged("Col4");
+					this.OnCol4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col5", DbType="NVarChar(120)", UpdateCheck=UpdateCheck.Never)]
+		public string Col5
+		{
+			get
+			{
+				return this._Col5;
+			}
+			set
+			{
+				if ((this._Col5 != value))
+				{
+					this.OnCol5Changing(value);
+					this.SendPropertyChanging();
+					this._Col5 = value;
+					this.SendPropertyChanged("Col5");
+					this.OnCol5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col6", DbType="NVarChar(60)", UpdateCheck=UpdateCheck.Never)]
+		public string Col6
+		{
+			get
+			{
+				return this._Col6;
+			}
+			set
+			{
+				if ((this._Col6 != value))
+				{
+					this.OnCol6Changing(value);
+					this.SendPropertyChanging();
+					this._Col6 = value;
+					this.SendPropertyChanged("Col6");
+					this.OnCol6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col7", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col7
+		{
+			get
+			{
+				return this._Col7;
+			}
+			set
+			{
+				if ((this._Col7 != value))
+				{
+					this.OnCol7Changing(value);
+					this.SendPropertyChanging();
+					this._Col7 = value;
+					this.SendPropertyChanged("Col7");
+					this.OnCol7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col8", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col8
+		{
+			get
+			{
+				return this._Col8;
+			}
+			set
+			{
+				if ((this._Col8 != value))
+				{
+					this.OnCol8Changing(value);
+					this.SendPropertyChanging();
+					this._Col8 = value;
+					this.SendPropertyChanged("Col8");
+					this.OnCol8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col9", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col9
+		{
+			get
+			{
+				return this._Col9;
+			}
+			set
+			{
+				if ((this._Col9 != value))
+				{
+					this.OnCol9Changing(value);
+					this.SendPropertyChanging();
+					this._Col9 = value;
+					this.SendPropertyChanged("Col9");
+					this.OnCol9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Col10", DbType="NVarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string Col10
+		{
+			get
+			{
+				return this._Col10;
+			}
+			set
+			{
+				if ((this._Col10 != value))
+				{
+					this.OnCol10Changing(value);
+					this.SendPropertyChanging();
+					this._Col10 = value;
+					this.SendPropertyChanged("Col10");
+					this.OnCol10Changed();
 				}
 			}
 		}

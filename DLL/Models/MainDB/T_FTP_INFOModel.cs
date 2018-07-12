@@ -193,8 +193,6 @@ namespace DLL.Models.MainDB
                     v.FTP_DESC = model.FTP_DESC;
                     v.FTP_LOGIN_USER = model.FTP_LOGIN_USER;
                     v.FTP_LOGIN_PASSWORD = model.FTP_LOGIN_PASSWORD;
-                    v.CREATE_DATE = DateTime.Now;
-                    v.CREATEUSER = user.USER_USERID;
                     v.LASTUPDATE = DateTime.Now;
                     v.LASTUPDATEUSER = user.USER_USERID;
                     DB.SubmitChanges();

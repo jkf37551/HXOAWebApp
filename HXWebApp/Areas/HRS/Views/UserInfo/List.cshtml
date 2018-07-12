@@ -44,6 +44,12 @@
                     @Html.DisplayNameFor(model => model.QueryModel.PostPriv)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.KOSTL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QueryModel.PERSK)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.QueryModel.STAT2)
                 </th>
                 <th>操作</th>
@@ -70,6 +76,12 @@
                 @Html.DisplayFor(modelItem => item.PostPriv)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.KOSTL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PERSK)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.STAT2)
             </td>
             <td>
@@ -77,58 +89,61 @@
                 @Html.ActionLink("详细信息", "Detail", new { id = item.ID }, new { @class = "btn btn-small btn-success" })
             </td>
         </tr>
+                }
             }
-        }
         </table>
 
+        if (Model != null && Model.QueryData != null)
+        {
         <div class="inline pull-right page">
             @Html.Encode(Model.Total_Recoder) 条记录 @Html.Encode(Model.Current_PageId)/@Html.Encode(Model.Total_Page) 页
             @if (Model.Current_PageId > 1)
-        {
-        <a href='#'>首页</a>
-        <a href='#'>上一页</a>
-        }
-        else
-        {
-                <span>首页</span>
-                <span>上一页</span>
-        }
-            @if (Model.Current_PageId > 2)
-        {
-        <a href='#'>@Html.Encode(Model.Current_PageId - 2)</a>
-        <a href='#'>@Html.Encode(Model.Current_PageId - 1)</a>
-        }
-        else
-        {
-            if (Model.Current_PageId > 1)
             {
-        <a href='#'>@Html.Encode(Model.Current_PageId - 1)</a>
+                @Html.ActionLink("首页", Model.Action, new { pageid = 1 })
+                @Html.ActionLink("上一页", Model.Action, new { pageid = Model.Current_PageId - 1 })
             }
-        }
+            else
+            {
+                <span> 首页 </span>
+                <span> 上一页 </span>
+            }
+            @if (Model.Current_PageId > 2)
+            {
+                @Html.ActionLink((Model.Current_PageId - 2).ToString(), Model.Action, new { pageid = Model.Current_PageId - 2 })
+                @Html.ActionLink((Model.Current_PageId - 1).ToString(), Model.Action, new { pageid = Model.Current_PageId - 1 })
+            }
+            else
+            {
+                if (Model.Current_PageId > 1)
+                {
+                    @Html.ActionLink((Model.Current_PageId - 1).ToString(), Model.Action, new { pageid = Model.Current_PageId - 1 })
+                }
+            }
             <span class='current'>@Html.Encode(Model.Current_PageId)</span>
             @if ((Model.Current_PageId + 2) <= Model.Total_Page)
-        {
-        <a href='#'>@Html.Encode(Model.Current_PageId + 1)</a>
-        <a href='#'>@Html.Encode(Model.Current_PageId + 2)</a>
-        }
-        else
-        {
-            if ((Model.Current_PageId + 1) <= Model.Total_Page)
             {
-        <a href='#'>@Html.Encode(Model.Current_PageId + 1)</a>
+                @Html.ActionLink((Model.Current_PageId + 1).ToString(), Model.Action, new { pageid = Model.Current_PageId + 1 })
+                @Html.ActionLink((Model.Current_PageId + 2).ToString(), Model.Action, new { pageid = Model.Current_PageId + 2 })
             }
-        }
+            else
+            {
+                if ((Model.Current_PageId + 1) <= Model.Total_Page)
+                {
+                    @Html.ActionLink((Model.Current_PageId + 1).ToString(), Model.Action, new { pageid = Model.Current_PageId + 1 })
+                }
+            }
             @if (Model.Total_Page > Model.Current_PageId)
-        {
-        <a href='#'>下一页</a>
-        <a href='#'>尾页</a>
-        }
-        else
-        {
+            {
+                @Html.ActionLink("下一页", Model.Action, new { pageid = Model.Current_PageId + 1 })
+                @Html.ActionLink("尾页", Model.Action, new { pageid = Model.Total_Page })
+            }
+            else
+            {
                 <span>下一页</span>
                 <span>尾页</span>
-        }
+            }
         </div>
+        }
     }
 </body>
 </html>

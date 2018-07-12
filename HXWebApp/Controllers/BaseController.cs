@@ -30,7 +30,6 @@ namespace HXWebApp.Controllers
                 Page_Size = 20, //默认每页显示20条记录
                 Total_Page = 1, //初始化页面数为1
                 Total_Recoder = 0,  //初始化记录查询条目数为0
-                PageQueryUrl = ""   //设置分页查询地址
             };
         }
         

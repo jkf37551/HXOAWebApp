@@ -33,19 +33,25 @@
                         <li>
                             <label class='inline'>@Html.CheckBoxFor(m=>Model.MenuInfo[i].Ifchecked)@Html.Encode(Model.MenuInfo[i].text)@Html.HiddenFor(m=> Model.MenuInfo[i].code)</label>
                             <ul>
-                                @for (int j = 0; j < Model.MenuInfo[i].menu.Count; j++)
+                                @if (Model.MenuInfo[i].menu != null)
                                 {
+                                    for (int j = 0; j < Model.MenuInfo[i].menu.Count; j++)
+                                    {
                                         <li>
-                                            <label class="inline">@Html.CheckBoxFor(m=>Model.MenuInfo[i].menu[j].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].text)@Html.HiddenFor(m=> Model.MenuInfo[i].menu[j].code)</label>
+                                            <label class="inline">@Html.CheckBoxFor(m => Model.MenuInfo[i].menu[j].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].text)@Html.HiddenFor(m => Model.MenuInfo[i].menu[j].code)</label>
                                             <ul>
-                                                @for (int k = 0; k < Model.MenuInfo[i].menu[j].items.Count; k++)
+                                                @if (Model.MenuInfo[i].menu[j].items != null)
                                                 {
+                                                    for (int k = 0; k < Model.MenuInfo[i].menu[j].items.Count; k++)
+                                                    {
                                                     <li>
-                                                        <label class="inline">@Html.CheckBoxFor(m=>Model.MenuInfo[i].menu[j].items[k].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].items[k].text)@Html.HiddenFor(m=> Model.MenuInfo[i].menu[j].items[k].code)</label>
+                                                        <label class="inline">@Html.CheckBoxFor(m => Model.MenuInfo[i].menu[j].items[k].Ifchecked)@Html.Encode(Model.MenuInfo[i].menu[j].items[k].text)@Html.HiddenFor(m => Model.MenuInfo[i].menu[j].items[k].code)</label>
                                                     </li>
+                                                    }
                                                 }
                                             </ul>
                                         </li>
+                                    }
                                 }
                             </ul>
                         </li>

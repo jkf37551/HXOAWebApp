@@ -164,4 +164,37 @@
       <Column Name="USERCARD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.T_HR_SAP_WERKS" Member="T_HR_SAP_WERKS">
+    <Type Name="T_HR_SAP_WERKS">
+      <Column Name="WID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WERKS" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="NAME1" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="STATS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INPRO" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="BZIRK" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="BZIRK2" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="LOWPAY" Type="System.Decimal" DbType="Decimal(13,2)" CanBeNull="true" />
+      <Column Name="RLOWPAY" Type="System.Decimal" DbType="Decimal(13,2)" CanBeNull="true" />
+      <Column Name="BUKRS" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="KHINR" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AREA" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="PITIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CHAGEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CHAGEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModify" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Column Name="EROED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NEWSTORE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZTYPE" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="Col1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col4" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col5" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="Col6" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Col7" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col8" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col9" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Col10" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
